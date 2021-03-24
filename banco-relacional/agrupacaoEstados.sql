@@ -1,0 +1,1 @@
+SELECT regiao, SUM(populacao) FROM estados GROUP BY regiao ORDER BY regiao ASC;

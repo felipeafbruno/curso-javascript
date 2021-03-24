@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Modificando HTML #03</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Modificando HTML #03</h1>
+    <div id='conteudo'></div>
+
+    <script>
+        $(document).ready(function() {
+            const pessoas = [
+                { nome: 'Ana', nota: 9.1 },
+                { nome: 'Bianca', nota: 8.4 },
+                { nome: 'Carlos', nota: 7.6 },
+                { nome: 'Julia', nota: 9.7 }
+            ]
+        
+            // MINHA SOLUÇÃO
+            // const table = $('<table>').css('border', 'solid 3px')
+            // pessoas.forEach(p => {
+            //     table.append('<tr>'+
+            //                     '<td>'+p.nome+'</td>'+
+            //                     '<td>'+p.nota+'</td>'+
+            //                 '</tr>')
+            // })
+            // $('#conteudo').append(table)
+
+            const linhas = pessoas.map(p => {
+                const tdNome = $('<td>').append(p.nome)
+                const tdNota = $('<td>').append(p.nota)
+                // return $('<tr>').append(tdNome).append(tdNota) 
+                // return $('<tr>').append([tdNome, tdNota])
+                return $('<tr>').append(tdNome, tdNota)
+            })
+            const table = $('<table>').append(linhas).css('border', 'solid 3px')
+            $('#conteudo').append(table)
+        })
+    </script>
+</body>

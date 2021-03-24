@@ -1,0 +1,26 @@
+INSERT INTO estados 
+    (nome, sigla, regiao, populacao) 
+VALUES 
+    ('Bahia', 'BA', 'NORDESTE', 15.34), 
+    ('Ceará', 'CE', 'NORDESTE', 9.02), 
+    ('Distrito Federal', 'DF', 'CENTRO-OESTE', 3.04),
+    ('Espírito Santo', 'ES', 'SUDESTE', 4.02),
+    ('Goías', 'GO', 'CENTRO-OESTE', 7),
+    ('Maranhao', 'MA', 'NORDESTE', 3.34),
+    ('Mato Grosso', 'MT', 'CENTRO-OESTE', 3.38),
+    ('Mato Grosso do Sul', 'MS', 'CENTRO-OESTE', 2.71),
+    ('Minas Gerias', 'MG', 'SUDESTE', 21.12),
+    ('Pará', 'PA', 'NORTE', 8.36),
+    ('Paraíba', 'PB', 'NORDESTE', 4.03),
+    ('Parana', 'PR', 'SUL', 11.22),
+    ('Pernambuco', 'PE', 'NORDESTE', 9.47),
+    ('Piauí', 'PI', 'NORDESTE', 3.22),
+    ('Rio de Janeiro', 'RJ', 'SUDESTE', 16.72),
+    ('Rio Grande do Norte', 'RN', 'NORDESTE', 3.51),
+    ('Rio Grande do Sul', 'RS', 'SUL', 11.32),
+    ('Rondônia', 'RO', 'NORTE', 1.81),
+    ('Roraima', 'RR', 'NORTE', 0.52),
+    ('Santa Catarina', 'SC', 'SUL', 7.01),
+    ('São Paulo', 'SP', 'SUDESTE', 45.1),
+    ('Sergipe', 'SE', 'NORDESTE', 2.29),
+    ('Tocantins', 'TO', 'NORTE', 1.81);

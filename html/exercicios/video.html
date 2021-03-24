@@ -1,0 +1,75 @@
+<video id="meuVideo" width="800" height="450" controls controlsList="nodownload">
+    <source src='http://files.cod3r.com.br/curso-web/video.mp4' type="video/mp4">
+    Seu browser não suporte a tag de vídeo.
+</video>
+
+<div wm-progress="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<div>
+    <button wm-play="meuVideo">Play</button>
+    <button wm-pause="meuVideo">Pause</button>
+</div>
+
+<style>
+    .progresso {
+        height: 20px;
+        width: 500px;
+        border: solid 1px #444;
+        margin: 20px
+    }
+
+    .progresso > div {
+        background-color: red;
+        color: #fff;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+        width: 0%;
+    }
+</style>
+
+<script>
+    // para obter tempo atual do video "video.currentTime"
+
+    const video = document.getElementById('meuVideo'); // video
+    video.oncontextmenu = () => false
+    // const barraProgresso = document.querySelector('[wm-progress] > div')
+    const barraProgresso = document.getElementsByClassName('progresso')[0].children[0] // barra de progresso MINHA MANEIRA DE FAZER
+
+    const buttonPlay = document.querySelector('[wm-play]');
+    buttonPlay.addEventListener('click', function() {
+        playVideo(video);
+    });
+
+    const buttonPause = document.querySelector('[wm-pause]');
+    buttonPause.addEventListener('click', function() {
+        pauseVideo(video)
+    });
+
+    function playVideo(video) {
+        if(video.paused) {
+            video.play();
+            setInterval(() => atualizarBarraProgresso(video.currentTime, video.duration, barraProgresso), 500)
+        }
+    }
+    function pauseVideo(video) {
+        video.pause();
+    }
+    
+
+    function atualizarBarraProgresso(tempoAtual, duracaoTotal, barraProgresso) {
+        console.log(tempoAtual)
+        if(tempoAtual <= duracaoTotal) {
+            let porcentagem = (tempoAtual * 100) / duracaoTotal    
+
+            barraProgresso.style.width = `${porcentagem}%` 
+            barraProgresso.innerHTML = `${porcentagem.toFixed(1)}%`
+            setTimeout(() => atualizarBarraProgresso(video.currentTime, video.duration, barraProgresso), 0.1)
+        } else {
+            console.log('Fim Execução')
+        }
+    }
+
+</script>
